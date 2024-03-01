@@ -1,0 +1,45 @@
+﻿@model IEnumerable<IPENTITES.Registartions>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateRegistrations", "Registrations")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EventId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AttendeeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RegistrationDate)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AttendeeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegistrationDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditRegistrations", new { registrationId = item.RegistrationId, eventId = item.EventId }) |
+                @Html.ActionLink("Delete", "DeleteRegistration", new { registrationId = item.RegistrationId, eventId = item.EventId })
+            </td>
+        </tr>
+    }
+</table>
+

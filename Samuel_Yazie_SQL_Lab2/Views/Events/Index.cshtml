@@ -1,0 +1,65 @@
+﻿@model IEnumerable<IPENTITES.Events>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+
+<p>
+    @Html.ActionLink("Create New", "CreateEventsView")
+</p>
+@* This table displays the trips on the database *@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EventName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventLocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventCapacity)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventLocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventCapacity)
+            </td>
+            <td>
+                @* Change eventId to match the EditEventView on the EventController *@
+                @Html.ActionLink("Edit", "EditEventsView", new { eventId = item.EventId }) |
+                @Html.ActionLink("Details", "Index", "Registrations", new { eventId = item.EventId }, null) |
+                @Html.ActionLink("Delete", "DeleteEvent", new { eventId = item.EventId })
+            </td>
+        </tr>
+    }
+</table>
+
+
+
+

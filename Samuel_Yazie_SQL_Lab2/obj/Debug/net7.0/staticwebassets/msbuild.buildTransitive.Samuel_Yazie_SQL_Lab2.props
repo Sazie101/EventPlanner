@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../buildMultiTargeting/Samuel_Yazie_SQL_Lab2.props" />
+</Project>
